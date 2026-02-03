@@ -29,7 +29,7 @@ function Header() {
 
 
     return (
-        <header className="dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-100 w-[95%] fixed rounded-2xl border border-gray-300 px-10 flex justify-between h-fit items-center">
+        <header className="z-99 bg-white dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-100 w-[95%] fixed rounded-2xl border border-gray-300 px-10 flex justify-between h-fit items-center">
             <Link to="/">
                 <img src="/diagnovet-removebg.png" alt="logo" className="h-14 w-14 cursor-pointer" />
             </Link>
