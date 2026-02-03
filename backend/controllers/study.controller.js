@@ -101,7 +101,6 @@ export const getStudies = async (req, res) => {
 export const getStudyById = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.id;
 
     const study = await Study.findById(id)
       .populate("profesionalACargo", "mail nombre apellido cargo")
@@ -111,16 +110,10 @@ export const getStudyById = async (req, res) => {
       return res.status(404).json({ message: "Estudio no encontrado" });
     }
 
-    const isOwner =
-      study.dueño._id.toString() === userId ||
-      study.profesionalACargo._id.toString() === userId;
-
-    if (!isOwner) {
-      return res.status(403).json({ message: "Acceso denegado" });
-    }
-
     res.json(study);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: "Error obteniendo estudio" });
   }
 };
+
