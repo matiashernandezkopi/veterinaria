@@ -12,8 +12,8 @@ import { isProfessional } from "../middlewares/role.middleware.js";
 
 const router = express.Router();
 
-router.get("/", authMiddleware, getStudies);
-router.get("/:id", authMiddleware, getStudyById);
+router.get("/", getStudies);
+router.get("/:id", getStudyById);
 
 router.post("/", authMiddleware, isProfessional, createStudy);
 
